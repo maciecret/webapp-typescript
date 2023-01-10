@@ -47,6 +47,9 @@ const population = document.querySelector('#pop');
 // list template 
 const ul = document.querySelector('ul');
 const list = new ListTemplate(ul);
+const forms = document.forms;
+const myList = document.querySelector('#updated-list ul');
+///////////////////////////////////////////////////////////
 var database = [
     { myItem: new Format('Manila', 'Philippines', 1.3) }
 ];
@@ -74,6 +77,16 @@ form.addEventListener('submit', (e) => {
     old_data.push(new_data);
     localStorage.setItem('data', JSON.stringify(old_data));
 });
+////////////////////////////////TO VIEW DATA////////////////////////////////////////
+/*
+
+!! TO FIX !!
+    I want to replace the previous database printed on the website with
+    new database when a user added data
+
+
+
+*/
 function ViewData() {
     if (localStorage.getItem('data') != null) {
         var value = localStorage.getItem('data');
@@ -84,40 +97,24 @@ function ViewData() {
             l.innerText = item.replace(/[&\/\\#,+()$~%.'"*?<>{}]/g, "");
             list2.appendChild(l);
         });
-        // document.getElementById('savelist')!.innerHTML += myArray[0].replace(/[&\/\\#,+()$~%.'"*?<>{}]/g,"")  
-        // document.getElementById('savelist')!.innerHTML +=  myArray[3].replace(/[&\/\\#,+()$~%.'"*?<>{}]/g,"")
-        // while(i < myArray!.length){
-        //   document.getElementById('savelist')!.innerHTML += String(myArray![i]) 
-        //   i++
-        // }
-        //document.getElementById('UnList')?.innerHTML = JSON.parse(JSON.stringify(localStorage.getItem('data')))
     }
 }
-// function UpdateData(){
-//   let myList = document.getElementById("UnList");
-//   var fragList = document.createDocumentFragment()
-//   var lis = document.createElement('li');
-//   lis.innerText = String(new Format(String(database2[database2.length-1].city),String(database2[database2.length-1].country),Number(database2[database2.length-1].population)).format())
-//   fragList.append(lis)
-//   myList?.appendChild(fragList)
-// }
-function searchFilter() {
-    // Declare variables
-    var input, filter, ul, li, a, i;
-    input = document.getElementById('searchInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementsByClassName("updated-list")[0];
-    li = ul.getElementsByTagName('savelist');
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-        if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+//////////////////////////////FIX THE SEARCH BAR//////////////////////////////////////////////
+const searchBar = forms['search-data'].querySelector('input');
+searchBar.addEventListener('keyup', (e) => {
+    const term = e.target.value.toLowerCase();
+    const datum = myList.getElementsByTagName('li');
+    Array.from(datum).forEach(data);
+    {
+        const city_country = data.firstElementChild.textContent;
+        if (city_country.replace(/[&\/\\#,+()$~%.'"*?<>{}]/g, "").toLowerCase().indexOf(e.target.value) != -1) {
+            data.style.display = 'block';
         }
         else {
-            li[i].style.display = "none";
+            data.style.display = 'none';
         }
     }
-}
+});
 /////create current list of country, add to database array////
 // let myList = document.getElementById("UnList");
 // var fragList = document.createDocumentFragment()
