@@ -106,7 +106,7 @@ function searchFilter() {
     var input, filter, ul, li, a, i;
     input = document.getElementById('searchInput');
     filter = input.value.toUpperCase();
-    ul = document.getElementsByClassName("save-list")[0];
+    ul = document.getElementsByClassName("updated-list")[0];
     li = ul.getElementsByTagName('savelist');
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {

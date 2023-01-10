@@ -92,12 +92,8 @@ form.addEventListener('submit', (e) => {
 function ViewData(){
   if(localStorage.getItem('data')!=null){
 
-    
     var value = localStorage.getItem('data');
-    
-    
     const myArray = value?.split(",");
-
     let list2 = document.getElementById('savelist')
     
 
@@ -141,7 +137,7 @@ function searchFilter() {
   var input, filter, ul, li, a, i;
   input = document.getElementById('searchInput');
   filter = input.value.toUpperCase();
-  ul = document.getElementsByClassName("save-list")[0];
+  ul = document.getElementsByClassName("updated-list")[0];
   
   li = ul.getElementsByTagName('savelist');
 
