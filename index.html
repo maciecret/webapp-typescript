@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <h1>City Directory</h1>
+
+  <!-- <div class="wrapper">
+    <h1>City Directory</h1>
+
+    
+    <ul class="item-list">
+      
+    </ul>
+  </div> -->
+
+<div class="searchbar">
+    <label>Search by City/Country: </label>
+    <input type="text" id = "searchInput" placeholder= "" onkeyup = "searchFilter()">
+    <br></br>
+</div>
+
+<div class = "datalist">
+    <fieldset>
+        <h3>Recently added:</h3>
+        <ul id="UnList">
+        </ul>
+    </fieldset>
+</div>
+
+  <footer>
+    <form class="new-item-form">
+        <fieldset>
+      
+      <div class="field">
+        <label>City:</label>
+        <input type="text" id="city">
+      </div>  
+      
+
+      <div class="field">
+        <label>Country:</label>
+        <input type="text" id="country">
+      </div>
+      
+      
+      <div class="field">
+        <label>Population:</label>
+        <input type="number" id="pop">
+      </div>
+      <br></br> 
+      <button>Add</button>
+      <br></br> 
+
+    </fieldset>
+    </form>
+
+  </footer>
+
+  <div class="updated-list">
+    <fieldset>
+        <button onclick="ViewData()">View List</button>
+        
+        <ul id = "savelist" >
+            
+
+        </ul>
+    </fieldset>
+
+    </div>
+  <!-- <div class="wrapper">
+    <h3>City recently added:</h3>
+    
+    <ul class="item-list">
+      
+    </ul>
+  </div>   -->
+
+  
+
+
+<script>var exports = {"__esModule" : { value: true }}</script>
+<script src="./index.js"></script>
+
+</body>
+</html>
